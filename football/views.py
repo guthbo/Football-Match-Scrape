@@ -98,6 +98,20 @@ class TeamViews(APIView):
         return Response({"Error!": serialized_data.errors})
 
 
+class SingleTeam(APIView):
+    def get(self, request, id):
+        team_data = Team.objects.get(id=id)
+
+        return Response(
+            data={
+                "id": team_data.id,
+                "team": team_data.team,
+                "logo": team_data.logo,
+                "is_guest": team_data.is_guest,
+            }
+        )
+
+
 class MatchesViews(APIView):
     def get(self, request):
         all_matches = Matches.objects.all()
@@ -133,3 +147,17 @@ class MatchesViews(APIView):
             return Response(data=serialized_data.data)
 
         return Response({"Error!": serialized_data.errors})
+
+
+class SingleMatch(APIView):
+    def get(self, request, id):
+        match_data = Matches.objects.get(id=id)
+
+        return Response(
+            data={
+                "date": match_data.date,
+                "score": match_data.score,
+                "team_one": match_data.team_one,
+                "team_two": match_data.team_two,
+            }
+        )
