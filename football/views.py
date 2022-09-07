@@ -50,6 +50,16 @@ class SingleChampionat(APIView):
     def get(self, request, id):
         championat_data = Championat.objects.get(id=id)
 
+        return Response(
+            data={
+                "id": championat_data.id,
+                "match": championat_data.match,
+                "country": championat_data.country,
+                "date": championat_data.date,
+                "time": championat_data.time,
+            }
+        )
+
 
 class TeamViews(APIView):
     def get(self, request):
