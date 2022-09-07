@@ -56,7 +56,6 @@ class SingleChampionat(APIView):
                 "match": championat_data.match,
                 "country": championat_data.country,
                 "date": championat_data.date,
-                "time": championat_data.time,
             }
         )
 

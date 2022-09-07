@@ -6,11 +6,10 @@ from django.db import models
 class Championat(models.Model):
     match = models.CharField("Championat:", max_length=200)
     country = models.CharField("Country:", max_length=200)
-    date = models.CharField("Date:", max_length=200)
-    time = models.CharField("Time:", max_length=200)
+    date = models.DateTimeField()
 
     def __str__(self):
-        return self.name
+        return self.match, self.country
 
     class Meta:
 
@@ -38,7 +37,7 @@ class Matches(models.Model):
     team_two = models.CharField("Team 2: ", max_length=30)
 
     def __str__(self):
-        return self.date, self.team_one, self.score, self.team_two
+        return self.team_one + " vs " + self.team_two
 
     class Meta:
         verbose_name = "Match"

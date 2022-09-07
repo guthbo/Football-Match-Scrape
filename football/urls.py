@@ -14,5 +14,5 @@ urlpatterns = [
     path("team/", TeamViews.as_view()),
     path("team/<int:id>/", SingleTeam.as_view()),
     path("match/", MatchesViews.as_view()),
-    path("match/<int:id>/", SingleTeam.as_wiev()),
+    path("match/<int:id>/", SingleTeam.as_view()),
 ]
