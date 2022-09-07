@@ -1,3 +1,5 @@
+from calendar import c
+from struct import calcsize
 from django.db import models
 
 # Create your models here.
